@@ -18,6 +18,7 @@ private:
 
 public:
 	Matrix(int, int);
+	~Matrix();
 
 	void setElement(int, int, int);
 

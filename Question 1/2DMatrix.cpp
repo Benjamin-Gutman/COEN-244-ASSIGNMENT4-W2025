@@ -8,11 +8,17 @@
 
 #include <iostream>
 #include "2DMatrix.h"
+using namespace std;
 
 Matrix :: Matrix(int row, int column){
 	rows = row;
 	columns = column;
 	elements = new int[row*column];
+}
+
+Matrix :: ~Matrix(){
+	delete[] elements;
+	cout << "Matrix Deleted" << endl;
 }
 
 void Matrix::setElement(int i, int j, int num){
@@ -35,7 +41,7 @@ const Matrix& Matrix:: operator=(const Matrix& assign){
 			elements[i] = assign.elements[i];
 		}
 	}
-	return this;
+	return *this;
 }
 
 
@@ -45,7 +51,7 @@ const Matrix& Matrix:: operator+(const Matrix& right){
 				elements[i] = elements[i] + right.elements[i];
 			}
 	}
-	return this;
+	return *this;
 }
 
 
@@ -56,7 +62,7 @@ const Matrix& Matrix:: operator-(const Matrix& right){
 				elements[i] = elements[i] - right.elements[i];
 			}
 	}
-	return this;
+	return *this;
 }
 
 
