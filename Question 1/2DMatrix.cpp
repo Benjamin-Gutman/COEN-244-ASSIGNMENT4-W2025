@@ -27,10 +27,70 @@ int Matrix::operator()(int i, int j){
 }
 
 const Matrix& Matrix:: operator=(const Matrix& assign){
-	rows = assign.rows;
-	columns = assign.columns;
+	if (&assign != this){
+		rows = assign.rows;
+		columns = assign.columns;
 
-	for (int i = 0; i < (rows*columns); i++){
-
+		for (int i = 0; i < (rows*columns); i++){
+			elements[i] = assign.elements[i];
+		}
 	}
+	return this;
 }
+
+
+const Matrix& Matrix:: operator+(const Matrix& right){
+	if (rows == right.rows && columns == right.columns){
+		for (int i = 0; i < (rows*columns); i++){
+				elements[i] = elements[i] + right.elements[i];
+			}
+	}
+	return this;
+}
+
+
+
+const Matrix& Matrix:: operator-(const Matrix& right){
+	if (rows == right.rows && columns == right.columns){
+		for (int i = 0; i < (rows*columns); i++){
+				elements[i] = elements[i] - right.elements[i];
+			}
+	}
+	return this;
+}
+
+
+bool Matrix:: operator==(const Matrix& right){
+	if (rows == right.rows && columns == right.columns){
+		for (int i = 0; i < (rows*columns); i++){
+				if (elements[i] != right.elements[i]){
+					return false;
+				}
+			}
+		return true;
+	}
+	return false;
+
+}
+
+bool Matrix:: operator!=(const Matrix& right){
+	if (rows == right.rows && columns == right.columns){
+		for (int i = 0; i < (rows*columns); i++){
+				if (elements[i] != right.elements[i]){
+					return true;
+				}
+			}
+		return false;
+	}
+	return true;
+
+}
+
+
+
+
+
+
+
+
+
