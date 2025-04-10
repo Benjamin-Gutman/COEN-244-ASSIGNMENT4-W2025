@@ -16,6 +16,15 @@ Matrix :: Matrix(int row, int column){
 	elements = new int[row*column];
 }
 
+Matrix:: Matrix(Matrix& copy){
+	rows = copy.rows;
+	columns = copy.columns;
+	elements = new int[rows*columns];
+	for (int i = 0; i < rows*columns; i++){
+		elements[i] = copy.elements[i];
+	}
+}
+
 Matrix :: ~Matrix(){
 	delete[] elements;
 	cout << "Matrix Deleted" << endl;
@@ -46,23 +55,25 @@ const Matrix& Matrix:: operator=(const Matrix& assign){
 
 
 const Matrix& Matrix:: operator+(const Matrix& right){
+	Matrix result(*this);
 	if (rows == right.rows && columns == right.columns){
 		for (int i = 0; i < (rows*columns); i++){
-				elements[i] = elements[i] + right.elements[i];
+				 result.elements[i]= elements[i] + right.elements[i];
 			}
 	}
-	return *this;
+	return result;
 }
 
 
 
 const Matrix& Matrix:: operator-(const Matrix& right){
+	Matrix result(*this);
 	if (rows == right.rows && columns == right.columns){
 		for (int i = 0; i < (rows*columns); i++){
-				elements[i] = elements[i] - right.elements[i];
+				 result.elements[i]= elements[i] - right.elements[i];
 			}
 	}
-	return *this;
+	return result;
 }
 
 
