@@ -5,8 +5,10 @@
  *      Author: benjamin
  */
 
-#ifndef QUESTION_2_DATASTORAGE_H_
-#define QUESTION_2_DATASTORAGE_H_
+#ifndef DATASTORAGE_H_
+#define DATASTORAGE_H_
+#include <string>
+using namespace std;
 
 class DataStorage{
 private:
@@ -15,10 +17,15 @@ private:
 	float* fPtr;
 
 public:
-	DataStorage(const char&, );
+	DataStorage();
+	~DataStorage();
+
+	void allocate(const string& type, int size);
+	void setData(const string& type, int index, const string& value);
+	void print(const string& type, int size) const;
 
 };
 
 
 
-#endif /* QUESTION_2_DATASTORAGE_H_ */
+#endif /* DATASTORAGE_H_ */
