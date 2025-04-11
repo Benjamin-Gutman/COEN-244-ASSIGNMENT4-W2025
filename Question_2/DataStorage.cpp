@@ -6,7 +6,8 @@
  */
 
 
-#include "DataStorage.h"
+#include "../Question_2/DataStorage.h"
+
 #include <iostream>
 #include <sstream>
 using namespace std;

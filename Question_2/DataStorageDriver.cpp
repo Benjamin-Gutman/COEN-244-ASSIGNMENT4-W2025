@@ -5,11 +5,12 @@
  *      Author: jiyongjeon
  */
 
-#include "DataStorage.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <vector>
+
+#include "../Question_2/DataStorage.h"
 using namespace std;
 
 int main(){
