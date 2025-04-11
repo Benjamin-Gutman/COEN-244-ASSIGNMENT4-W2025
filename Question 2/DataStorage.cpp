@@ -48,18 +48,18 @@ void DataStorage::setData(const string& type, int index, const string& value){
 	}
 }
 
-void DataStorage::print(const string& type, int size) const{
-	cout << type << " [" << size << "]: ";
-	if (type == "int" && iPtr) {
-		for (int i = 0; i < size; ++i) cout<<iPtr[i]<<" ";
-	}
-	else if(type == "float" && fPtr){
-		for (int i = 0; i < size; ++i) cout << fPtr[i] << " ";
-	}
-	else if(type == "char" && cPtr){
-		for (int i = 0; i < size; ++i) cout << cPtr[i] << " ";
-	}
-	cout << endl;
+void DataStorage::print() const {
+    if (iPtr) {
+        cout << "int: ";
+        for (int i = 0; iPtr && iPtr[i]; ++i) cout << iPtr[i] << " ";
+    } else if (fPtr) {
+        cout << "float: ";
+        for (int i = 0; fPtr && iPtr[i]; ++i) cout << fPtr[i] << " ";
+    } else if (cPtr) {
+        cout << "char: ";
+        for (int i = 0; cPtr && cPtr[i]; ++i) cout << cPtr[i] << " ";
+    }
+    cout << endl;
 }
 
 

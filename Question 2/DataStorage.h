@@ -22,7 +22,7 @@ public:
 
 	void allocate(const string& type, int size);
 	void setData(const string& type, int index, const string& value);
-	void print(const string& type, int size) const;
+	void print() const;
 
 };
 
