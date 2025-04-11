@@ -9,6 +9,7 @@
 #include "../Question_1/2DMatrix.h"
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 Matrix :: Matrix(int row, int column){
@@ -39,13 +40,15 @@ void Matrix::setElement(int i, int j, int num){
 
 int Matrix::operator()(int i, int j){
 	int position = (i*columns) +j;
+	if (position > columns*rows){
+		throw string("Error: Out Of Range");
+	}
 	return elements[position];
 }
 
 Matrix& Matrix:: operator=(const Matrix& assign){
 	if(rows != assign.rows || columns != assign.columns){
-		cout << "Wrong Dimensions of Array" << endl;
-		return *this;
+		throw "Error: Different Sized Arrays";
 
 	}
 	else if (&assign != this){
@@ -62,10 +65,14 @@ Matrix& Matrix:: operator=(const Matrix& assign){
 
 Matrix Matrix:: operator+(const Matrix& right){
 	Matrix result(*this);
+
 	if (rows == right.rows && columns == right.columns){
 		for (int i = 0; i < (rows*columns); i++){
 				 result.elements[i]= elements[i] + right.elements[i];
 			}
+	}
+	else{
+		throw string("Error: Different Sized Arrays");
 	}
 	return result;
 }
@@ -78,6 +85,9 @@ Matrix Matrix:: operator-(const Matrix& right){
 		for (int i = 0; i < (rows*columns); i++){
 				 result.elements[i]= elements[i] - right.elements[i];
 			}
+	}
+	else {
+		throw string("Error: Different Sized Arrays");
 	}
 	return result;
 }

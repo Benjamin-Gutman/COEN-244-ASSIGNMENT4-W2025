@@ -1,9 +1,11 @@
 #include <iostream>
+#include <string>
 
 #include "../Question_1/2DMatrix.h"
 using namespace std;
 
 int main(){
+	try{
 	Matrix matrix1(2,2);
 	Matrix matrix2(2,2);
 	Matrix matrix3(3,2);
@@ -71,7 +73,6 @@ int main(){
 	}
 
 
-
 	if (matrix4 != matrix1){
 		cout << "Inequality Test Failed"<< endl;
 	}
@@ -102,6 +103,13 @@ int main(){
 			cout << "Subtraction Test Failed"<< endl;
 		}
 
+	matrix4 = matrix1+matrix3;
+
+
+	}
+	catch(string str){
+		cout << str << endl;
+	}
 
 	return 0;
 }
