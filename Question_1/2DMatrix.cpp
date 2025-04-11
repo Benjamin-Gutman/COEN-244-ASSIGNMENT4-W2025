@@ -6,8 +6,9 @@
  */
 
 
+#include "../Question_1/2DMatrix.h"
+
 #include <iostream>
-#include "2DMatrix.h"
 using namespace std;
 
 Matrix :: Matrix(int row, int column){
@@ -41,8 +42,13 @@ int Matrix::operator()(int i, int j){
 	return elements[position];
 }
 
-const Matrix& Matrix:: operator=(const Matrix& assign){
-	if (&assign != this){
+Matrix& Matrix:: operator=(const Matrix& assign){
+	if(rows != assign.rows || columns != assign.columns){
+		cout << "Wrong Dimensions of Array" << endl;
+		return *this;
+
+	}
+	else if (&assign != this){
 		rows = assign.rows;
 		columns = assign.columns;
 
@@ -54,7 +60,7 @@ const Matrix& Matrix:: operator=(const Matrix& assign){
 }
 
 
-const Matrix& Matrix:: operator+(const Matrix& right){
+Matrix Matrix:: operator+(const Matrix& right){
 	Matrix result(*this);
 	if (rows == right.rows && columns == right.columns){
 		for (int i = 0; i < (rows*columns); i++){
@@ -66,7 +72,7 @@ const Matrix& Matrix:: operator+(const Matrix& right){
 
 
 
-const Matrix& Matrix:: operator-(const Matrix& right){
+Matrix Matrix:: operator-(const Matrix& right){
 	Matrix result(*this);
 	if (rows == right.rows && columns == right.columns){
 		for (int i = 0; i < (rows*columns); i++){

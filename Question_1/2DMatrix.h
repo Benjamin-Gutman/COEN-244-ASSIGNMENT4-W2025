@@ -24,9 +24,9 @@ public:
 	void setElement(int, int, int);
 
 	int operator()(int, int);
-	const Matrix& operator=(const Matrix&);
-	const Matrix& operator+(const Matrix&);
-	const Matrix& operator-(const Matrix&);
+	Matrix& operator=(const Matrix&);
+	Matrix operator+(const Matrix&);
+	Matrix operator-(const Matrix&);
 	bool operator==(const Matrix&);
 	bool operator!=(const Matrix&);
 

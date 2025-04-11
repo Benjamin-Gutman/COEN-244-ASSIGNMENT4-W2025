@@ -1,5 +1,6 @@
 #include <iostream>
-#include "2DMatrix.h"
+
+#include "../Question_1/2DMatrix.h"
 using namespace std;
 
 int main(){
