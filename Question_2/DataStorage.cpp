@@ -12,6 +12,8 @@
 #include <sstream>
 using namespace std;
 
+
+// Constructor initializes all pointers and variables
 DataStorage::DataStorage(){
 	iPtr = nullptr;
 	cPtr = nullptr;
@@ -20,12 +22,14 @@ DataStorage::DataStorage(){
 	size = 0;
 }
 
+// Destructor safely deallocates whichever pointer was used
 DataStorage::~DataStorage(){
 	delete[] iPtr;
 	delete[] cPtr;
 	delete[] fPtr;
 }
 
+// Allocates dynamic memory for the selected type, resets other pointers
 void DataStorage::allocate(const string& type, int size) {
     this->type = type;
     this->size = size;
@@ -45,6 +49,7 @@ void DataStorage::allocate(const string& type, int size) {
     }
 }
 
+// Parses the string and stores it into the appropriate array
 void DataStorage::setData(int index, const string& value) {
     istringstream iss(value);
     if (type == "int" && iPtr) {
@@ -56,6 +61,7 @@ void DataStorage::setData(int index, const string& value) {
     }
 }
 
+// Prints the data in [type: value1 value2 ...] format
 void DataStorage::print() const {
     cout << type << " [" << size << "]: ";
     if (type == "int" && iPtr) {
