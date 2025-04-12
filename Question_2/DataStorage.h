@@ -15,13 +15,15 @@ private:
 	int* iPtr;
 	char* cPtr;
 	float* fPtr;
+    string type;
+    int size;
 
 public:
 	DataStorage();
 	~DataStorage();
 
 	void allocate(const string& type, int size);
-	void setData(const string& type, int index, const string& value);
+	void setData(int index, const string& value);
 	void print() const;
 
 };
