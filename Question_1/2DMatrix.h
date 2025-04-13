@@ -16,7 +16,7 @@ private:
 public:
 	//Class constructors
 	Matrix(int, int);
-	Matrix(Matrix&);
+	Matrix(const Matrix&);
 
 	//destructor
 	~Matrix();
@@ -27,7 +27,7 @@ public:
 	//operator overloading
 
 	// () used for finding the items in the array instead of using [][]
-	int operator()(int, int);
+	int operator()(int, int) const;
 	Matrix& operator=(const Matrix&);
 	Matrix operator+(const Matrix&);
 	Matrix operator-(const Matrix&);

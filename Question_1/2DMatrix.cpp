@@ -16,7 +16,7 @@ Matrix :: Matrix(int row, int column){
 	elements = new int[row*column];
 }
 
-Matrix:: Matrix(Matrix& copy){
+Matrix:: Matrix(const Matrix& copy){
 	rows = copy.rows;
 	columns = copy.columns;
 	elements = new int[rows*columns];
@@ -40,9 +40,9 @@ void Matrix::setElement(int i, int j, int num){
 
 
 //finds the item at a specific location and prints it out
-int Matrix::operator()(int i, int j){
+int Matrix::operator()(int i, int j) const{
 	int position = (i*columns) +j;
-	if (position > columns*rows){
+	if (position >= columns*rows){
 		throw string("Error: Out Of Range");
 	}
 	return elements[position];
@@ -56,9 +56,6 @@ Matrix& Matrix:: operator=(const Matrix& assign){
 
 	}
 	else if (&assign != this){
-		rows = assign.rows;
-		columns = assign.columns;
-
 		for (int i = 0; i < (rows*columns); i++){
 			elements[i] = assign.elements[i];
 		}
