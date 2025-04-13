@@ -1,9 +1,5 @@
-/*
- * DataStorage.h
- *
- *  Created on: Apr 9, 2025
- *      Author: benjamin
- */
+//Benjamin Gutman 40315265
+//Jiyong Jeon 40314593
 
 #ifndef DATASTORAGE_H_
 #define DATASTORAGE_H_

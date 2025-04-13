@@ -1,3 +1,6 @@
+//Benjamin Gutman 40315265
+//Jiyong Jeon 40314593
+
 #include <iostream>
 #include <string>
 
@@ -6,6 +9,8 @@ using namespace std;
 
 int main(){
 	try{
+
+		//initialize the matrices
 	Matrix matrix1(2,2);
 	Matrix matrix2(2,2);
 	Matrix matrix3(3,2);
@@ -39,6 +44,7 @@ int main(){
 
 
 
+	//Test function for finiding items at a location
 	int matrixValue = matrix1(1,1);
 
 	if(matrixValue == 4){
@@ -56,6 +62,8 @@ int main(){
 		cout << "Equality Test 1 Failed"<< endl;
 	}
 
+
+	//testing addition, equality and inequality
 	matrix1 = matrix1+matrix2;
 
 	if (matrix4 == matrix1){
@@ -94,6 +102,9 @@ int main(){
 		cout << "Inequality Test 3 Failed"<< endl;
 	}
 
+
+
+	//testing subtraction
 	matrix1 = matrix1-matrix2;
 
 	if (matrix2 == matrix1){
@@ -103,6 +114,8 @@ int main(){
 			cout << "Subtraction Test Failed"<< endl;
 		}
 
+
+	//testing exception handling
 	matrix4 = matrix1+matrix3;
 
 
